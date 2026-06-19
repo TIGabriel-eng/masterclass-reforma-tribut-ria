@@ -1,3 +1,22 @@
+var player;
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtube-player', {
+        height: '480',
+        width: '100%',
+        videoId: 'ib0wuDAWElc',
+        playerVars: {
+            'list': 'PLEA7REMsf1TTtBBlVUXPFGTU2H5-MxG-X',
+            'autoplay': 1,
+            'mute': 1,
+            'controls': 1,
+            'rel': 0,
+            'modestbranding': 1,
+            'playsinline': 1
+        }
+    });
+}
+
 function smoothScroll(target, duration = 1200) {
     const targetEl = typeof target === 'string' ? document.querySelector(target) : target;
     if (!targetEl) return;
@@ -58,44 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctaSection = document.querySelector('.cta-dual-section');
     if (ctaSection) modObserver.observe(ctaSection);
 
-    const ytContainer = document.getElementById('ytPlayer');
-    const playBtn = document.getElementById('videoPlayBtn');
-    if (ytContainer && playBtn) {
-        let player;
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        document.head.appendChild(tag);
-        window.onYouTubeIframeAPIReady = () => {
-            player = new YT.Player('ytPlayer', {
-                height: '400',
-                width: '100%',
-                videoId: 'ib0wuDAWElc',
-                playerVars: {
-                    autoplay: 1,
-                    mute: 1,
-                    modestbranding: 1,
-                    rel: 0,
-                    iv_load_policy: 3,
-                    showinfo: 0,
-                    fs: 0,
-                    controls: 0
-                },
-                events: {
-                    onReady: () => {
-                        player.mute();
-                        player.playVideo();
-                    }
-                }
-            });
-        };
-        playBtn.addEventListener('click', () => {
-            if (player && player.unMute) {
-                player.unMute();
-                player.setVolume(100);
-                playBtn.classList.add('hidden');
-            }
-        });
-    }
 
     const moduloItems = document.querySelectorAll('.modulo-item');
     moduloItems.forEach(item => {
@@ -207,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 40);
     });
 
-    document.querySelectorAll('.preco-card, .nivel-card, .modulo-item').forEach(card => {
+    document.querySelectorAll('.gold-card:not(#testemunhoGoldCard):not(#heroGoldCard), .preco-card, .nivel-card, .modulo-item').forEach(card => {
         card.addEventListener('mousemove', e => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -250,5 +231,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('selectstart', e => e.preventDefault());
+
+    var goldenBtn = document.getElementById('goldenPlayBtn');
+    var goldenOverlay = document.getElementById('goldenOverlay');
+    if (goldenBtn && goldenOverlay) {
+        goldenBtn.addEventListener('click', function () {
+            if (player && typeof player.unMute === 'function') {
+                player.unMute();
+            }
+            goldenOverlay.classList.add('hidden');
+        });
+    }
 
 });

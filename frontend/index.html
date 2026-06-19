@@ -15,8 +15,20 @@
 <div class="top-bar">
     <div class="top-bar-track">
         <span>🔥 GARANTA JÁ O SEU ACESSO! 🔥</span>
-            </div>
         </div>
+</div>
+<div class="marquee marquee-header">
+    <div class="marquee-track">
+        <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+        <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+        <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+        <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+        <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+        <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+        <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+        <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+    </div>
+</div>
 <header class="header">
     <div class="header-container">
         <div class="logo">
@@ -37,7 +49,8 @@
         </div>
         <div class="hero-overlay"></div>
         <section class="hero">
-            <div class="hero-content">
+            <div class="gold-card" id="heroGoldCard">
+                <div class="gold-card-shine"></div>
                 <div class="hero-image-block">
                     <img class="hero-img" src="assets/orcoma1.jpg" alt="Orcoma">
                     <div class="hero-boll-wrapper">
@@ -51,48 +64,43 @@
             </div>
         </section>
 
-        <div class="content-grid">
-
-        <div class="content-left">
-            <div class="side-img-wrapper">
-                <img class="side-img" src="assets/orcoma2.jpg" alt="Orcoma 2">
-                <div class="side-boll-wrapper">
-                    <img src="assets/boll_orcoma.png" alt="" class="side-boll">
+        <div class="gold-card" id="investGoldCard">
+            <div class="gold-card-shine"></div>
+            <div class="content-left">
+                <div class="side-img-wrapper">
+                    <img class="side-img" src="assets/orcoma2.jpg" alt="Orcoma 2">
+                    <div class="side-boll-wrapper">
+                        <img src="assets/boll_orcoma.png" alt="" class="side-boll">
+                    </div>
                 </div>
+            </div>
+            <div class="content-right">
+                <h1>Por que investir no masterclass?</h1>
+                <p>
+                    Muitos empresários ainda estão olhando para a
+                    reforma tributária como se fosse apenas uma mudança
+                    distante na legislação. mas, na prática,
+                    ela pode impactar diretamente áreas essenciais da empresa:
+                    formação de preço, margem de lucro, fluxo de caixa, competitividade,
+                    planejamento e tomada de decisão.
+                </p>
+                <p>
+                    O problema é que quem espera a mudança chegar pode perder tempo, 
+                    margem e poder de reação.
+                </p>
             </div>
         </div>
 
-        <div class="content-right">
-            <h1>Por que investir no masterclass?</h1>
-
-            <p>
-                Muitos empresários ainda estão olhando para a
-                reforma tributária como se fosse apenas uma mudança
-                distante na legislação. mas, na prática,
-                ela pode impactar diretamente áreas essenciais da empresa:
-                formação de preço, margem de lucro, fluxo de caixa, competitividade,
-                planejamento e tomada de decisão.
-            </p>
-
-            <p>
-                O problema é que quem espera a mudança chegar pode perder tempo, 
-                margem e poder de reação.
-            </p>
-
-        </div>
-
-        </div>
-
-    <div class="marquee">
+    <div class="marquee" style="margin-top:0">
         <div class="marquee-track">
-            <span>◄ Orcoma Contabilidade 2026 ◄</span>
-            <span>◄ Orcoma Contabilidade 2026 ◄</span>
-            <span>◄ Orcoma Contabilidade 2026 ◄</span>
-            <span>◄ Orcoma Contabilidade 2026 ◄</span>
-            <span>◄ Orcoma Contabilidade 2026 ◄</span>
-            <span>◄ Orcoma Contabilidade 2026 ◄</span>
-            <span>◄ Orcoma Contabilidade 2026 ◄</span>
-            <span>◄ Orcoma Contabilidade 2026 ◄</span>
+            <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+            <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+            <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+            <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+            <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+            <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+            <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
+            <span>• MASTERCLASS - REFORMA TRIBUTÁRIA •</span>
         </div>
     </div>
     </div>
@@ -148,14 +156,27 @@
                 <h2 class="immersao-title">Nossa Imersão Presencial!</h2>
                 <p class="immersao-subtitle">Esse conteúdo já impactou empresários na imersão presencial da Orcoma. E esse mesmo conteúdo está disponível agora para você de forma online!</p>
                 <div class="video-card" id="videoContainer">
-                    <div class="video-player" id="ytPlayer"></div>
-                    <button class="video-play-overlay" id="videoPlayBtn">▶</button>
+                    <div class="video-wrapper" id="videoWrapper">
+                        <div id="youtube-player"></div>
+                        <div class="golden-overlay" id="goldenOverlay">
+                            <button class="golden-play-btn" id="goldenPlayBtn" aria-label="Ativar som">
+                                <svg viewBox="0 0 24 24" width="64" height="64" fill="none">
+                                    <polygon points="9,6 20,12 9,18" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 
     <section class="testemunho-section">
+        <div class="testemunho-text-wrapper">
+            <p class="testemunho-text">Empresários que participaram da imersão já entenderam:</p>
+            <p class="testemunho-destaque">Esperar pode custar caro!</p>
+        </div>
+        <div class="testemunho-divider"></div>
         <div class="testemunho-banner">
             <button class="carousel-btn carousel-btn--prev">&#8249;</button>
             <button class="carousel-btn carousel-btn--next">&#8250;</button>
@@ -251,11 +272,6 @@
                 </div>
             </div>
             </div>
-        </div>
-        <div class="testemunho-divider"></div>
-        <div class="testemunho-content">
-            <p class="testemunho-text">Empresários que participaram da imersão já entenderam:</p>
-            <p class="testemunho-destaque">Esperar pode custar caro!</p>
         </div>
     </section>
 
@@ -360,6 +376,7 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 </body>
 </html>
