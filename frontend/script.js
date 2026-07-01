@@ -2,11 +2,10 @@ var player;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('youtube-player', {
-        height: '480',
+        height: '600',
         width: '100%',
-        videoId: 'ib0wuDAWElc',
+        videoId: 'Nj6iZmF-h3w',
         playerVars: {
-            'list': 'PLEA7REMsf1TTtBBlVUXPFGTU2H5-MxG-X',
             'autoplay': 1,
             'mute': 1,
             'controls': 1,
