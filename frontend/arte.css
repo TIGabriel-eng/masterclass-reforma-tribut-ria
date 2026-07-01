@@ -70,28 +70,53 @@ body{
     margin:0;
     min-height:100vh;
     cursor: default;
-    background:
+    background-color: #0a0a0a;
+}
+
+.grafite-section {
+    position: relative;
+}
+
+.grafite-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.12) 1.5px,
+            transparent 1.5px
+        ),
         radial-gradient(
             ellipse at 50% 0%,
-            rgba(255, 193, 7, 0.1) 0%,
-            transparent 50%
-        ),
-        radial-gradient(
-            ellipse at 100% 100%,
-            rgba(212, 168, 67, 0.06) 0%,
-            transparent 40%
-        ),
-        radial-gradient(
-            ellipse at 0% 50%,
-            rgba(255, 193, 7, 0.03) 0%,
-            transparent 50%
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 70%
         ),
         linear-gradient(
             180deg,
-            #050302 0%,
-            #020101 50%,
-            #000000 100%
+            #050505 0%,
+            #1a1a1a 50%,
+            #2a2a2a 100%
         );
+    background-size:
+        25px 25px,
+        100% 100%,
+        100% 100%;
+    background-repeat:
+        repeat,
+        no-repeat,
+        no-repeat;
+}
+
+.grafite-section-full::before {
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 main {
@@ -145,9 +170,6 @@ main {
 header.header {
     width: 100%;
     padding: 20px 0;
-    background: 
-        radial-gradient(ellipse at 50% 100%, rgba(255, 193, 7, 0.15) 0%, transparent 60%),
-        #000000;
     position: relative;
 }
 
@@ -580,10 +602,11 @@ header.header::after {
 /* Video card */
 .video-card {
     position: relative;
-    border-radius: 20px;
     min-height: 320px;
-    width: 100%;
-    max-width: 1100px;
+    width: 100vw;
+    max-width: none;
+    align-self: flex-start;
+    margin-left: calc(50% - 50vw);
 }
 
 .video-player {
@@ -597,13 +620,14 @@ header.header::after {
 .video-wrapper {
     position: relative;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 0;
     overflow: hidden;
 }
 
 #youtube-player {
     width: 100%;
     height: 480px;
+    pointer-events: none;
 }
 
 .golden-overlay {
@@ -619,7 +643,6 @@ header.header::after {
 
 .golden-overlay.hidden {
     opacity: 0;
-    pointer-events: none;
 }
 
 .golden-play-btn {
@@ -850,7 +873,6 @@ header.header::after {
 /* Immersao section */
 .immersao-wrapper {
     width: 100%;
-    background: #000;
 }
 
 .immersao-section {
@@ -1132,7 +1154,6 @@ header.header::after {
 /* Bonus */
 .bonus-wrapper {
     width: 100%;
-    background: #000000;
 }
 
 .bonus-divider {
@@ -1339,6 +1360,7 @@ header.header::after {
 }
 
 .preco-card {
+    position: relative;
     background: linear-gradient(135deg, #d4a843, #d4a843, #f5e6b8, #d4a843, #d4a843);
     border: 2px solid #f5e6b8;
     border-radius: 20px;
@@ -1673,6 +1695,22 @@ header.header::after {
     align-items: center;
     gap: 60px;
     margin-top: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.especialista-card.especialista-reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.especialista-card.especialista-reveal:hover {
+    transform: translateY(-6px);
+}
+
+.especialista-card.especialista-reveal:hover .especialista-image {
+    transform: scale(1.02);
 }
 
 .especialista-image-wrapper {
@@ -1681,11 +1719,17 @@ header.header::after {
     padding-right: 80px;
 }
 
+#celso-image-wrapper {
+    width: 620px;
+    padding-right: 0;
+}
+
 .especialista-image {
     width: 100%;
     height: auto;
     border-radius: 12px;
     box-shadow: none;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .especialista-info {

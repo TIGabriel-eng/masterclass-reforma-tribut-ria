@@ -11,7 +11,9 @@ function onYouTubeIframeAPIReady() {
             'controls': 1,
             'rel': 0,
             'modestbranding': 1,
-            'playsinline': 1
+            'playsinline': 1,
+            'loop': 1,
+            'playlist': 'Nj6iZmF-h3w'
         }
     });
 }
@@ -229,16 +231,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const especialistaObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const cards = entry.target.querySelectorAll('.especialista-card');
+                cards.forEach((card, i) => {
+                    setTimeout(() => {
+                        card.classList.add('especialista-reveal');
+                    }, i * 200);
+                });
+                especialistaObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    const especialistasSection = document.querySelector('.especialistas-section');
+    if (especialistasSection) especialistaObserver.observe(especialistasSection);
+
     document.addEventListener('selectstart', e => e.preventDefault());
 
     var goldenBtn = document.getElementById('goldenPlayBtn');
     var goldenOverlay = document.getElementById('goldenOverlay');
     if (goldenBtn && goldenOverlay) {
         goldenBtn.addEventListener('click', function () {
-            if (player && typeof player.unMute === 'function') {
-                player.unMute();
+            if (player) {
+                if (player.isMuted()) {
+                    player.unMute();
+                } else {
+                    player.mute();
+                }
             }
-            goldenOverlay.classList.add('hidden');
+            goldenOverlay.classList.toggle('hidden');
         });
     }
 
